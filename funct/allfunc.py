@@ -1,7 +1,7 @@
 import time
 
  
-def abastecer(pfloat,totalL,totalR,ind):
+def abastecer(pfloat,totalL,totalR):
     exibir(preco)
     opcao=litros=0
     sn=""
@@ -9,30 +9,29 @@ def abastecer(pfloat,totalL,totalR,ind):
         opcao= int(input("\n\nDigite o número correspondente ao do combustivel que deseja: "))
         real=float(input("Digite quantos reais deseja abastecer: "))
         litros=real/pfloat[opcao-1]
-        print(f"\n\nR${real:.2f} irá te fornecer {litros:.2f}litros\n")
+        print(f"\n\nR${real:.2f} irá te fornecer {litros:.2f} litros\n")
         sn=input("Caso deseje realizar o abastecimento com os valores inserido digite [S] \ncaso deseja adicionar valores diferentes digite [N]: ").upper()
      
     totalL+=litros
     totalR+= real
     
     
-    ind+=1
 
-    file=open("real.txt","wr")
+    file=open("real.txt","wt")
     file.write(f"{totalR}")
     file.close()
 
-    file=open("litrosT.txt","wr")
+    file=open("litrosT.txt","wt")
     file.write(f"{totalL}")
     file.close()
 
-    """file=open("dinheiro_indv.txt","at")
+    file=open("dinheiro_indv.txt","at")
     file. write(f"{real}\n")
     file.close()
 
     file=open("abast_indv.txt","at")
-    file. write(f"{litros}\n")
-    file.close()"""
+    file. write(f"{litros:.2f}\n")
+    file.close()
 
 
 
@@ -42,8 +41,8 @@ def choose(op):
     preco=list()
     global pfloat
     pfloat= list()
-    global ind
-    t1=t2=ind=0
+    
+    t1=t2=0
 
     global totalL
     global totalR
@@ -79,7 +78,7 @@ def choose(op):
         exibir(preco)
         time.sleep(2)
     elif op == 2 :#REALIZAR ABASTECIMENTOS
-        abastecer(pfloat,totalL,totalR,ind)
+        abastecer(pfloat,totalL,totalR)
         #concluido()
         
         
