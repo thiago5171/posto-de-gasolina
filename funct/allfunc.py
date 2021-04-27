@@ -1,6 +1,9 @@
 import time
 
  
+
+
+
 def abastecer(pfloat,totalL,totalR):
     exibir(preco)
     opcao=litros=0
@@ -18,21 +21,42 @@ def abastecer(pfloat,totalL,totalR):
     
 
     file=open("real.txt","wt")
-    file.write(f"{totalR}")
+    file.write(f"{totalR:.2f}")
     file.close()
 
     file=open("litrosT.txt","wt")
-    file.write(f"{totalL}")
+    file.write(f"{totalL:.2f}")
     file.close()
 
     file=open("dinheiro_indv.txt","at")
-    file. write(f"{real}\n")
+    file. write(f"{real:.2f}\n")
     file.close()
 
     file=open("abast_indv.txt","at")
-    file. write(f"{litros:.2f}\n")
+    file. write(f"combustivel {opcao} => {litros:.2f} L\n")
     file.close()
 
+
+
+
+
+def arrecadado():
+    cont=0
+    print( '|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
+    print(f'|1-Valor monetario do total arrecadado                |')
+    print( '|                                                     |')
+    print(f'|2-Lista dos valores arrecadados individualmete       |')
+    print( '|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
+    
+    op= int(input("Qual das opções deseja visualizar: "))
+    if op == 1:
+        file=open("real.txt","rt")
+        for i in file.readline():
+            print(f"valor total => R${i}.")
+    elif op == 2:    
+        file=open("dinheiro_indv.txt","rt")
+        for  i in file.readline():
+            print(f"valor {i2} => R${i[:]}.")
 
 
     
@@ -79,17 +103,21 @@ def choose(op):
         time.sleep(2)
     elif op == 2 :#REALIZAR ABASTECIMENTOS
         abastecer(pfloat,totalL,totalR)
-        #concluido()
+        
+        print("\n\n\nAbastecendo....")
+        time.sleep(6)
+        
+        concluido()
         
         
     elif op == 3 :# ATUALIZAR O PRECO DOS COMBUSTIVEIS
        
         alterar(preco)
-       #processando()
-        #concluido()
+        processando()
+        concluido()
         
     elif op == 4 :# GERAR SALDO TOTAL ARRECADADO NO DIA
-        print("")
+        arrecadado()
     elif op == 5 :# SAIR DO PROGRAMA
         print("\n"*130)
         print(">>>>>>  Sistema finalizado com sucesso  <<<<<")
@@ -107,7 +135,6 @@ def transform(preco,pfloat):
             pfloat.append(aux)
         
 
-    
 
 
 def msg():
@@ -143,7 +170,7 @@ def alterar(preco):
     exibir(preco)
     
     opt=int(input("digite a opção que deseja alterar: "))
-    new=input("digite o novo preço de alteração: ")
+    new=input("digite o novo preço de alteração:[USE O PONTO NO LUGAR DA VIRGULA ->(0.0)] ")
     preco[opt-1]=new
 
     file=open("preco.txt","wt")
@@ -170,3 +197,5 @@ def concluido():
     print("Operação realizada com sucesso")
     time.sleep(3)
     print("\n"*130)
+
+

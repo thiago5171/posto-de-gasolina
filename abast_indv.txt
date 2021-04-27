@@ -1,3 +1,4 @@
-38.46153846153846
-3.846153846153846
-22.69230769230769
+combustivel 3 => 13.16 L
+combustivel 1 => 11.54 L
+combustivel 1 => 23.08 L
+combustivel 2 => 1.28 L
