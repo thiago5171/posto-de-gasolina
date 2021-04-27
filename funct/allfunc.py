@@ -41,22 +41,58 @@ def abastecer(pfloat,totalL,totalR):
 
 
 def arrecadado():
-    cont=0
-    print( '|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
-    print(f'|1-Valor monetario do total arrecadado                |')
-    print( '|                                                     |')
-    print(f'|2-Lista dos valores arrecadados individualmete       |')
-    print( '|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
+    cont=1
+    
+    print('|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
+    print('|1-Valor monetario do total arrecadado                |')
+    print('|                                                     |')
+    print('|2-Lista dos valores arrecadados individualmete       |')
+    print('|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
     
     op= int(input("Qual das opções deseja visualizar: "))
     if op == 1:
         file=open("real.txt","rt")
-        for i in file.readline():
-            print(f"valor total => R${i}.")
+        i=file.readline()
+        print(f"valor total => R${i[:]}.")
+        file.close()
+
     elif op == 2:    
+        
         file=open("dinheiro_indv.txt","rt")
-        for  i in file.readline():
-            print(f"valor {i2} => R${i[:]}.")
+        for linha in file.readlines():
+            print(f"O {cont}ª abastecimento foi de => R${linha}",end="")
+            cont+=1
+        file.close()
+        print("\n\n\n")
+        time.sleep(2)
+
+
+def exibirCombustivel():
+    cont=1
+    print('|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
+    print('|1- Total de litros de combustivel vendido  |')
+    print('|                                           |')
+    print('|2-Lista dos abastecimentos individualmete  |')
+    print('|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
+    
+    op= int(input("\n\nQual das opções deseja visualizar: "))
+    print("\n")
+    if op == 1:
+        file=open("litrosT.txt","rt")
+        i=file.readline()
+        print(f"Total => R${i[:]}L.")
+        print("\n\n\n")
+        file.close()
+
+    elif op == 2:    
+        print("\n")
+        file=open("abast_indv.txt","rt")
+        for linha in file.readlines():
+            print(f"O {cont}ª abastecimento foi de => {linha}",end="")
+            cont+=1
+        file.close()
+        print("\n\n\n")
+        time.sleep(2)
 
 
     
@@ -118,7 +154,9 @@ def choose(op):
         
     elif op == 4 :# GERAR SALDO TOTAL ARRECADADO NO DIA
         arrecadado()
-    elif op == 5 :# SAIR DO PROGRAMA
+    elif op == 5:
+        exibirCombustivel()
+    elif op == 6 :# SAIR DO PROGRAMA
         print("\n"*130)
         print(">>>>>>  Sistema finalizado com sucesso  <<<<<")
         print("\n"*5)
@@ -147,7 +185,8 @@ def msg():
     print("[2] Realizar abastecimento")  
     print("[3] Alterar preço ")
     print("[4] ver total arrecado")
-    print("[5] SAIR")
+    print("[5] Ver os litros de combustivel vendido")
+    print("[6] SAIR")
 
 
 def exibir(preco):
