@@ -50,6 +50,7 @@ def arrecadado():
     print('|=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=|')
     
     op= int(input("Qual das opções deseja visualizar: "))
+    print("\n")
     if op == 1:
         file=open("real.txt","rt")
         i=file.readline()
@@ -57,14 +58,14 @@ def arrecadado():
         file.close()
 
     elif op == 2:    
-        
         file=open("dinheiro_indv.txt","rt")
         for linha in file.readlines():
             print(f"O {cont}ª abastecimento foi de => R${linha}",end="")
             cont+=1
         file.close()
-        print("\n\n\n")
-        time.sleep(2)
+
+    print("\n\n\n")
+    time.sleep(2)
 
 
 def exibirCombustivel():
@@ -85,14 +86,14 @@ def exibirCombustivel():
         file.close()
 
     elif op == 2:    
-        print("\n")
+        
         file=open("abast_indv.txt","rt")
         for linha in file.readlines():
             print(f"O {cont}ª abastecimento foi de => {linha}",end="")
             cont+=1
         file.close()
-        print("\n\n\n")
-        time.sleep(2)
+    print("\n\n\n")
+    time.sleep(2)
 
 
     
@@ -191,7 +192,7 @@ def msg():
 
 def exibir(preco):
     
-   
+    print("\n"*130)
     print( '=-=-=-=-=-=-=-=-=-=-=-=-===-=-=-=-==-=')
     print(f' 1-Diesel               R${preco[0]}')
     print( '=-=-=-=-=-=-=-=-=-=-=-=-===-=-=-=-==-=')
