@@ -7,3 +7,4 @@ combustivel 2 => 9.20 L
 combustivel 3 => 26.32 L
 combustivel 2 => 17.69 L
 combustivel 3 => 18.42 L
+combustivel 3 => 52.63 L
