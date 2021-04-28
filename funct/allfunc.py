@@ -98,20 +98,23 @@ def exibirCombustivel():
 
     
 def choose(op): 
-    global preco#define  a lista preco como global para que ela seja sempre alterada fora escopo das  funcoes
-    preco=list()
+    global preco #define  a lista preco como global para que ela seja sempre alterada fora escopo das  funcoes
+    preco=list() #preço das gasolinas 
+
     global pfloat
-    pfloat= list()
+    pfloat= list()#precos das gaslina em float
     
     t1=t2=0
 
     global totalL
     global totalR
+    #essas duas operações estao responsaveis por passar o conteudo dos arquivos para uma variavel sempre 
+    #que eu setar uma alternativa, possibilitando que eu possa editar e manusear com facilidade
     #----------------------------
     
     file=open("real.txt","rt")
     for i in  file.readlines():
-        aux=float(i)
+        aux=float(i) # transforma em numero flutuante o valor da linha do arquivo
         t2= aux
     file.close()
     #----------------------------
@@ -145,8 +148,7 @@ def choose(op):
         time.sleep(6)
         
         concluido()
-        
-        
+  
     elif op == 3 :# ATUALIZAR O PRECO DOS COMBUSTIVEIS
        
         alterar(preco)
