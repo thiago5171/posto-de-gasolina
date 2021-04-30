@@ -1,11 +1,2 @@
-combustivel 3 => 13.16 L
-combustivel 1 => 11.54 L
-combustivel 1 => 23.08 L
-combustivel 2 => 1.28 L
-combustivel 2 => 5.90 L
-combustivel 2 => 9.20 L
-combustivel 3 => 26.32 L
-combustivel 2 => 17.69 L
-combustivel 3 => 18.42 L
-combustivel 3 => 52.63 L
-combustivel 4 => 10.60 L
+combustivel 4 = 8.62 L
+combustivel 4 = 5.69 L
