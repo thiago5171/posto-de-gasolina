@@ -8,16 +8,27 @@ op=0
 while op != 6:
     msg()
     op = int(input("Digite o número correspondente a opção da tabela:  "))
-    choose(op )
+    choose(op)
     
 
 
-"""
-preços padroes  
 
-2.66
-3.90
-3.88
-5.99
 
-"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
