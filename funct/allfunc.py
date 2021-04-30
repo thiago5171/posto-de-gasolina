@@ -33,7 +33,7 @@ def abastecer(pfloat,totalL,totalR):
     file.close()
 
     file=open("abast_indv.txt","at")
-    file. write(f"combustivel {opcao} => {litros:.2f} L\n")
+    file. write(f"combustivel {opcao} = {litros:.2f} L\n")
     file.close()
 
 
@@ -212,7 +212,9 @@ def alterar(preco):
     exibir(preco)
     
     opt=int(input("digite a opção que deseja alterar: "))
-    new=input("digite o novo preço de alteração:[USE O PONTO NO LUGAR DA VIRGULA ->(0.0)] ")
+    new=input("digite o novo preço de alteração: ")
+    if "," in new:
+        new = new.replace(",", ".")
     preco[opt-1]=new
 
     file=open("preco.txt","wt")
